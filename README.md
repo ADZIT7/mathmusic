@@ -1,2 +1,2 @@
 # mathmusic
-deez nutz
+Made with no amor using python
