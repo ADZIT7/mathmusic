@@ -4,6 +4,9 @@ import numpy as np
 class Graph:
     def __init__(self,e):
         self.function = e 
+    def getYInt(self):
+        x = 0
+        return eval(self.function)
     def graph(self,fromx = -10,tox = 10, amount = 40):
         # define variables
         x = np.linspace(fromx, tox, num = amount)
@@ -28,6 +31,6 @@ class Graph:
         else:
             # graph the function
             plt.plot(x,y, 'g')
-
+            plt.plot(0, self.getYInt(), marker="o", markersize=5, markerfacecolor="gray")
             # show the graph
             plt.show()
