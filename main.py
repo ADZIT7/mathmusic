@@ -4,7 +4,7 @@ from graph import Graph
 
 # input an equation
 equation = input('Enter a function: f(x) = ').replace("^","**").replace("sin","np.sin").replace("cos","np.cos").replace("tan","np.tan").replace("pi","np.pi").replace(")(", ")*(")
-#
+# create an instance of 'Graph'
 functionGraph = Graph(equation)
 # graph the entered equation
 functionGraph.graph()
