@@ -7,11 +7,14 @@ class Graph:
     def getYInt(self):
         x = 0
         return eval(self.function)
-    def graph(self,fromx = -10,tox = 10, amount = 40):
+    def getY(self,x):
+        return eval(self.function)
+    def graph(self,raw = "null",fromx = -10,tox = 10, amount = 40):
         # define variables
         x = np.linspace(fromx, tox, num = amount)
         # format graph
         fig, ax = plt.subplots()
+        ax.set_title(raw + ' (close window to continue)')
         ax.spines["left"].set_position(("data", 0))
         ax.spines["bottom"].set_position(("data", 0))
         ax.spines["top"].set_visible(False)
