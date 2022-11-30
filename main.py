@@ -19,8 +19,23 @@ while True:
 functionGraph.graph(raw=rawInput)
 
 notes = []
+# lowest value in the domain
+floor = round(functionGraph.getY(-amountNotes))
+# highest value in the domain
+ceiling = round(functionGraph.getY(amountNotes + 1))
+# MIDI limitations: Pitch cannot go over 127 or below 0
+# a multiplier will change the value of the numbers in the domain so that they fit in the MIDI note range
+# shifts the whole graph into minimum value of 0 and biggest
+multiplier = 1
+# 0 in y-value is middle C, which is note 60
+if floor + 60 < 0 or ceiling + 60 > 127:
+    multiplier = 127/(abs(floor) + abs(ceiling))
+    print(multiplier)
+# adjust all values in graph
 for i in range(-amountNotes, amountNotes + 1):
-    notes.append(round(functionGraph.getY(i) + 60))
+    notes.append(round(functionGraph.getY(i) * multiplier + 60))
+
+print(notes)
 track    = 0
 channel  = 0
 time     = 0    # In beats
@@ -35,5 +50,5 @@ MyMIDI.addTempo(track, time, tempo)
 for i, pitch in enumerate(notes):
     MyMIDI.addNote(track, channel, pitch, time + i, duration, volume)
 
-with open("f(x) = "+rawInput.replace(" ","_")+".mid", "wb") as output_file:
+with open("output.mid", "wb") as output_file:
     MyMIDI.writeFile(output_file)
