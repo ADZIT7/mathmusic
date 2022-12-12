@@ -50,5 +50,5 @@ MyMIDI.addTempo(track, time, tempo)
 for i, pitch in enumerate(notes):
     MyMIDI.addNote(track, channel, pitch, time + i, duration, volume)
 
-with open("output.mid", "wb") as output_file:
+with open("output.midi", "wb") as output_file:
     MyMIDI.writeFile(output_file)
