@@ -36,11 +36,11 @@ for i in range(-amountNotes, amountNotes + 1):
     notes.append(round(functionGraph.getY(i) * multiplier + 60))
 
 print(notes)
-track    = 0
+track    = 0 
 channel  = 0
 time     = 0    # In beats
 duration = 1    # In beats
-tempo    = 120   # In BPM
+tempo    = int(input('Set tempo (in BPM): '))   # In BPM
 volume   = 100  # 0-127, as per the MIDI standard
 
 MyMIDI = MIDIFile(1)  # One track, defaults to format 1 (tempo track is created
