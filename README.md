@@ -1,5 +1,5 @@
 # mathmusic
-Made with deez nu using python
+Made by Algor, ADZIT, and Nick using python
 To import libraries go to terminal and type:
 pip install matplotlib
 pip install mingus
